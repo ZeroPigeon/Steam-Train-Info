@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="Train information test" content="A basic website to test the idea of a pamphlets for steam train information">
+
+        <title>WonderSteam Information pamphlets</title>
+    
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f5f5f5;
+                margin: 0;
+                padding: 20px;
+            }
+
+            .header {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            .header img {
+                width: 100%;
+                border-radius: 15px;
+            }
+
+            .header h1 {
+                margin-top: 15px;
+            }
+
+            .info-row {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                margin-bottom: 20px;
+            }
+
+            .info-row img {
+                width: 100px;
+                height: 100px;
+                object-fit: cover;
+                border-radius: 12px;
+            }
+
+            .info-card {
+                flex: 1;
+                background: white;
+                border-radius: 12px;
+                padding: 20px;
+                margin-bottom: 15px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+                cursor: pointer;
+            }
+
+            .overlay {
+                display: none;
+                
+                position: fixed;
+                top: 0;
+                left: 0;
+
+                width: 100%;
+                height: 100%;
+
+                background: rgba(0,0,0,0.5);
+                
+                justify-content: center;
+                align-items: center;
+                
+                z-index: 1000;
+            }
+
+            .popup {
+                background: white;
+
+                width: 85%;
+                max-width: 400px;
+
+                padding: 25px;
+                border-radius: 15px;
+
+                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+
+                position: relative;
+            }
+
+            .close-btn {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 30px;
+                border: none;
+                background: none;
+                cursor: pointer;
+            }
+
+            @media (max-width: 600px) {
+                .info-row {
+                    flex-direction: column;
+                }
+
+                .info-row img {
+                    width: 100%;
+                    height: 180px;
+                }
+            
+                .info-card {
+                    width: 100%;
+                    box-sizing: border-box;
+                }
+            }
+
+        </style>
+    </head>
+    <body>
+        <header>
+            <p>WonderSteam: information pamphlets</p>
+        </header>
+        <main>
+
+            <div class="header">
+                <img src="/Katryn_Kant.jpeg" alt="15F Side view photo">
+                <h1>Welcome Aboard</h1>
+                <p>This is a basic information pamphlets, if you have a question which is not answered in this pamphlets please feel free to ask your coach controller.</p>
+            </div>
+            
+            <!--Info cards-->
+
+            <div class="info-row">
+                <img src="/Katryn_voor.jpeg" alt="15F Boiler photo">
+                <div class="info-card" onclick="openPanel('SteamLocoClass')">
+                    <h2>Steam Locomotive Class</h2>
+                    <p>Tap for more information</p>
+                </div>
+            </div>
+
+            <div class="info-row">
+                <div class="info-card" onclick="openPanel('LocoInfo')">
+                    <h2>Locomotive Class History</h2>
+                    <p>Tap for more information</p>
+                </div>
+                <img src="/Katryn_Binne.jpeg" alt="15F inside view photo">
+            </div>
+
+            <div class="info-row">
+                <img src="/Katryn_Bestuur.jpeg" alt="15F Steering area photo">
+                <div class="info-card" onclick="openPanel('LocoStats')">
+                    <h2>Locomotive statistics</h2>
+                    <p>Tap for more information</p>
+                </div>
+            </div>
+
+            <!--Overlay popups-->
+
+            <div id="SteamLocoClass" class="overlay">
+                <div class="popup">
+                    <button class="close-btn" onclick="closePanel('SteamLocoClass')">X</button>
+                
+                    <h1>Steam Locomotive Class</h1>
+
+                    <p>The steam locomotive is classed as the 15F, there were around 255 locomotives of this class made during production.</p>
+                    <p>The locomotive class is identified by looking at the wheels of the locomotive, this locomotive has a wheel pattern of 4-8-2.</p>
+                    <p>The pattern means that there are 4 small wheels at the front of the locomotive, 8 large wheels in the middle of the locomotive and 2 small wheels at the back of the locomotive.</p>
+                </div>
+
+            </div>
+
+            <div id="LocoInfo" class="overlay">
+                <div class="popup">
+                    <button class="close-btn" onclick="closePanel('LocoInfo')">X</button>
+                
+                    <h1>Some History of the Locomotive class</h1>
+
+                    <p>This class of locomotives where built between 1938 and 1947 by 4 different engineering firms.</p>
+                    <p>The 4 frms where: Berlin Maschinenbau, Hanschel & Son, North British Locomotive Company (NBL) and Beyer, Peacock & Company.</p>
+                    <p>This specific locomotive (15F fleet number: 3117), named Katryn, was built by the North British Locomotive Comapny (NBL) which puts her age at 80 years old.</p>
+                </div>
+            </div>
+
+            <div id="LocoStats" class="overlay">
+                <div class="popup">
+                    <button class="close-btn" onclick="closePanel('LocoStats')">X</button>
+                    
+                    <h1>Some statistics for curiosity</h1>
+
+                    <p>The locomotive has a top speed of around 90 km per hour but for saftey purposes there are speed limits in place on the tracks. The fastest we are allowed to go is around 45 km per hour</p>
+                    <p>The locomotive has a maximum pull capacity of 2 140 Tons</p>
+                    <p>The fire of the locomotive is lit up around 8 to 12 hours before the locomotive starts driving.</p>
+                    <p>Around 1 Ton of coal is used when lighting up the fire and around 3 Tons of coal is used to fuel the locomotive for a normal day riding to Pretoria Station and back for 2 trips.</p>
+                    <p>Depending on whether the train is climbing a steep gradient or cruising on flat ground it can use anywhere between 170 to 280 liters of water per kilometer traversed.</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 WonderSteam </p>
+        </footer>
+    
+        <script>
+
+            function openPanel(panelId) {
+                document.getElementById(panelId).style.display = "flex";
+            }
+
+            function closePanel(panelId) {
+                document.getElementById(panelId).style.display = "none";
+            }
+
+        </script>
+
+    </body>    
+
+</html>
