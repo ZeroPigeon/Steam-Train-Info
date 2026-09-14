@@ -14,7 +14,3 @@ This project is a minimalistic website created for the purpose of sharing some i
 ## How it works:
 
 Click on the category that looks interesting to expand it and reveal the information within that category.
-
-## Author
-
-Brihan Rouwerd
